@@ -1,0 +1,7 @@
+# Sajjadur Rahman - Portfolio Website Requirements
+# This project is a front-end website built with HTML, CSS, and JavaScript.
+# Flask is included to serve the site locally if needed.
+
+Flask==3.0.3          # Lightweight Python web server for local hosting
+gunicorn==22.0.0      # For deployment on Render, Railway, or similar platforms
+requests==2.32.3      # Useful for handling form submissions or API calls (optional)
