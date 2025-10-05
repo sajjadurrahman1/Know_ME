@@ -31,3 +31,13 @@
     color: #FFDD00 !important;
     text-shadow: 0 0 8px #FFDD00;
 }
+/* Carousel Neon Effects */
+.carousel-item img {
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.carousel-item img:hover {
+    box-shadow: 0 0 20px #FFDD00, 0 0 40px #FFDD00;
+    transform: scale(1.05);
+}
