@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sajjadur Rahman - Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0399badfd1.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Falling maple leaves background */
+        .maple-leaf {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-image: url('maple_leaf.png'); /* Your leaf image */
+            background-size: cover;
+            top: -50px;
+            animation: fall linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes fall {
+            0% {transform: translateY(0) rotate(0deg);}
+            100% {transform: translateY(100vh) rotate(360deg);}
+        }
+    </style>
+</head>
