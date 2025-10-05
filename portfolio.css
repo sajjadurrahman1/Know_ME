@@ -31,6 +31,7 @@
     color: #FFDD00 !important;
     text-shadow: 0 0 8px #FFDD00;
 }
+
 /* Carousel Neon Effects */
 .carousel-item img {
     border-radius: 15px;
@@ -40,4 +41,211 @@
 .carousel-item img:hover {
     box-shadow: 0 0 20px #FFDD00, 0 0 40px #FFDD00;
     transform: scale(1.05);
+}
+
+/* Carousel Controls Neon */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #FFDD00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    box-shadow: 0 0 15px #FFDD00, 0 0 30px #FFDD00;
+    transform: scale(1.2);
+}
+
+/* Optional: Neon glow for active carousel caption */
+.carousel-caption h5 {
+    text-shadow: 0 0 8px #FFDD00, 0 0 12px #FFDD00;
+}
+
+
+/* Hero Section */
+.heady {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 50px 0;
+}
+.intro h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+.intro h1 span {
+    color: #FFDD00;
+}
+.intro h3 {
+    margin-top: 20px;
+    font-weight: 500;
+}
+.resumebtn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 40px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(45deg, #FF416C, #FF4B2B);
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+.resumebtn:hover {
+    background: linear-gradient(45deg, #FF4B2B, #FF416C);
+}
+
+/* Social Icons */
+.link-icons-1 {
+    font-size: 40px;
+    margin-top: 20px;
+}
+.link-icons-1 i {
+    padding: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.link-icons-1 i:hover {
+    color: #FFDD00;
+    transform: scale(1.2);
+}
+
+/* About Section */
+.about {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+.abt1 img {
+    width: 220px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+.abt1 img:hover {
+    transform: scale(1.1);
+}
+.abt2 {
+    padding-left: 50px;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+}
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: #FFDD00;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Skills Section */
+.progress {
+    height: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.2);
+}
+.progress-bar {
+    background-color: #FFDD00 !important;
+    border-radius: 20px;
+}
+
+/* Education Cards */
+.card {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255,255,255,0.05);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+.card-header {
+    text-align: center;
+    color: #FFDD00;
+    font-weight: bold;
+}
+
+/* Projects Carousel */
+.carousel-item img {
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+.carousel-caption h5 {
+    background: rgba(0,0,0,0.6);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* Contact Form */
+form input, form textarea {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+form input::placeholder, form textarea::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+form button {
+    background: #FFDD00;
+    color: #000;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+form button:hover {
+    background: #FFC107;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .heady {
+        flex-direction: column;
+        text-align: center;
+    }
+    .abt2 {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+    .intro h1 {
+        font-size: 36px;
+    }
+    .intro h3 {
+        font-size: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .link-icons-1 {
+        font-size: 30px;
+    }
+    .abt1 img {
+        width: 150px;
+    }
+    .section-title {
+        font-size: 28px;
+    }
 }
