@@ -1,0 +1,33 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar Neon Effects */
+.nav-item .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #FFDD00; /* Neon underline color */
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+.nav-item .nav-link:hover::after,
+.nav-item .nav-link.active::after {
+    width: 100%;
+}
+.nav-item .nav-link:hover {
+    color: #FFDD00 !important;
+    text-shadow: 0 0 8px #FFDD00;
+}
