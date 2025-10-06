@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,6 +14,7 @@
 /* Navbar Neon Effects */
 .nav-item .nav-link {
     position: relative;
+    color: white !important; /* White by default */
     transition: color 0.3s ease;
 }
 .nav-item .nav-link::after {
@@ -29,7 +33,7 @@
 }
 .nav-item .nav-link:hover {
     color: #FFDD00 !important;
-    text-shadow: 0 0 8px #FFDD00;
+    text-shadow: 0 0 8px #FFDD00, 0 0 16px #FFDD00; /* Neon reflection */
 }
 
 /* Carousel Neon Effects */
@@ -62,7 +66,6 @@
 .carousel-caption h5 {
     text-shadow: 0 0 8px #FFDD00, 0 0 12px #FFDD00;
 }
-
 
 /* Hero Section */
 .heady {
@@ -104,11 +107,12 @@
 }
 .link-icons-1 i {
     padding: 15px;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 .link-icons-1 i:hover {
     color: #FFDD00;
     transform: scale(1.2);
+    text-shadow: 0 0 10px #FFDD00, 0 0 20px #FFDD00; /* Neon reflection */
 }
 
 /* About Section */
@@ -131,6 +135,7 @@
     padding-left: 50px;
     font-size: 1.1rem;
     line-height: 1.8rem;
+    color: white; /* ✅ Ensures text is visible */
 }
 .section-title {
     text-align: center;
@@ -152,14 +157,31 @@
 }
 
 /* Skills Section */
+#skills {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 60px 20px;
+    border-radius: 10px;
+}
+#skills h5 {
+    color: #FFDD00;
+}
 .progress {
     height: 20px;
     border-radius: 20px;
     background: rgba(255,255,255,0.2);
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 .progress-bar {
     background-color: #FFDD00 !important;
     border-radius: 20px;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+/* Animate progress bars */
+.progress-bar[data-width] {
+    width: attr(data-width); /* This will be controlled dynamically via JS if needed */
 }
 
 /* Education Cards */
