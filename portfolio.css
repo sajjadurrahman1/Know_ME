@@ -189,17 +189,28 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: rgba(255,255,255,0.05);
+    background: rgba(0, 0, 0, 0.6) !important; /* Dark background so white text is visible */
+    color: #ffffff !important; /* Makes all text readable */
 }
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
+
 .card-header {
     text-align: center;
-    color: #FFDD00;
+    color: #FFDD00 !important;
     font-weight: bold;
+    background: rgba(0, 0, 0, 0.8) !important; /* Adds contrast for the yellow text */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+.card-body {
+    color: #ffffff !important;
+    background: transparent !important; /* Prevents Bootstrap’s white background */
+}
+
 
 /* Projects Carousel */
 .carousel-item img {
