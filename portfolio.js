@@ -189,14 +189,3 @@ function setActive(){
 }
 window.addEventListener("scroll",setActive);
 setActive();
-/* ===== Hide scroll indicator after scroll ===== */
-const scrollIndicator = document.querySelector(".scroll-indicator");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 100) {
-    scrollIndicator.style.opacity = "0";
-    scrollIndicator.style.pointerEvents = "none";
-  } else {
-    scrollIndicator.style.opacity = "1";
-    scrollIndicator.style.pointerEvents = "auto";
-  }
-});
