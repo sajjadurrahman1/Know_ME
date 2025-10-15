@@ -999,3 +999,49 @@ footer {
     text-align: center !important;
   }
 }
+/* ===== Floating Particles ===== */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: floaty 12s ease-in-out infinite alternate;
+}
+
+@keyframes floaty {
+  0% { transform: translateY(0) scale(1); opacity: 0.5; }
+  100% { transform: translateY(-60px) scale(1.2); opacity: 1; }
+}
+/* ===== Animated Falling Leaves ===== */
+.animated-leaf {
+  position: fixed;
+  top: -5vh;
+  opacity: 0.85;
+  animation: leafFall linear forwards;
+  pointer-events: none;
+  z-index: 0;
+  filter: drop-shadow(0 0 6px rgba(255, 221, 0, 0.4));
+}
+
+@keyframes leafFall {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(var(--x-drift)) rotate(var(--rotation));
+  }
+  50% {
+    transform: translateX(calc(var(--x-drift) * -1)) rotate(calc(var(--rotation) * -1));
+  }
+  75% {
+    transform: translateX(var(--x-drift)) rotate(var(--rotation));
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--x-drift)) rotate(360deg);
+    opacity: 0.5;
+  }
+}

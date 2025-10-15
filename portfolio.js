@@ -56,32 +56,40 @@ function createHeroGlows(){
 createHeroGlows();
 
 /* ===== Scroll reveal + progress animation ===== */
-const revealEls=document.querySelectorAll(".reveal-up");
-const bars=document.querySelectorAll(".progress-bar");
-const directions=["up","left","right"];
-revealEls.forEach(el=>{
-  const dir=directions[Math.floor(Math.random()*directions.length)];
-  if(dir==="left")el.style.transform="translateX(-40px)";
-  else if(dir==="right")el.style.transform="translateX(40px)";
-  else el.style.transform="translateY(40px)";
-  el.style.opacity=0;
+const revealEls = document.querySelectorAll(".reveal-up");
+const bars = document.querySelectorAll(".progress-bar");
+const directions = ["up", "left", "right"];
+revealEls.forEach(el => {
+  const dir = directions[Math.floor(Math.random() * directions.length)];
+  if (dir === "left") el.style.transform = "translateX(-40px)";
+  else if (dir === "right") el.style.transform = "translateX(40px)";
+  else el.style.transform = "translateY(40px)";
+  el.style.opacity = 0;
 });
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      const el=entry.target;
-      const delay=Math.random()*0.4+0.1;
-      el.style.transition=`all 0.8s ${delay}s cubic-bezier(0.2,0.6,0.3,1)`;
-      el.style.opacity=1;
-      el.style.transform="translate(0,0)";
-      if(el.classList.contains("progress-bar"))
-        el.style.width=el.getAttribute("data-width");
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const delay = Math.random() * 0.4 + 0.1;
+      el.style.transition = `all 0.8s ${delay}s cubic-bezier(0.2,0.6,0.3,1)`;
+      el.style.opacity = 1;
+      el.style.transform = "translate(0,0)";
+      if (el.classList.contains("progress-bar"))
+        el.style.width = el.getAttribute("data-width");
       io.unobserve(el);
     }
   });
 },{threshold:0.25});
-revealEls.forEach(el=>io.observe(el));
-bars.forEach(b=>{b.style.width="0";io.observe(b);});
+revealEls.forEach(el => io.observe(el));
+bars.forEach(b => { b.style.width = "0"; io.observe(b); });
+
+// ===== Zigzag Section Reveal (Alternate Directions) =====
+document.querySelectorAll("section").forEach((sec, i) => {
+  const dir = i % 2 === 0 ? "translateX(-60px)" : "translateX(60px)";
+  sec.style.opacity = 0;
+  sec.style.transform = dir;
+  io.observe(sec);
+});
 
 /* ===== Navbar scroll glow ===== */
 const navbar=document.getElementById("navbar");
@@ -149,6 +157,16 @@ function createGlowOrb() {
 
 for (let i = 0; i < 6; i++) createGlowOrb();
 
+// ===== Floating Gold Particles Background =====
+const particleLayer = document.getElementById("leaf-layer");
+for (let i = 0; i < 20; i++) {
+  const dot = document.createElement("div");
+  dot.className = "particle";
+  dot.style.left = Math.random() * 100 + "%";
+  dot.style.top = Math.random() * 100 + "%";
+  dot.style.animationDuration = 10 + Math.random() * 20 + "s";
+  particleLayer.appendChild(dot);
+}
 
 
 /* ===== Parallax for Education photo ===== */
@@ -225,3 +243,40 @@ if (toggleBtn && moreHobbies) {
     }
   });
 }
+// ===== Falling Maple Leaf Animation (CSS Generated) =====
+function createAnimatedLeaf() {
+  const leaf = document.createElement("div");
+  leaf.classList.add("animated-leaf");
+
+  // Random horizontal position and size
+  leaf.style.left = Math.random() * 100 + "vw";
+  const size = 12 + Math.random() * 18;
+  leaf.style.fontSize = size + "px";
+
+  // Random animation duration
+  const duration = 6 + Math.random() * 6;
+  leaf.style.animationDuration = `${duration}s`;
+
+  // Random rotation direction
+  leaf.style.setProperty("--x-drift", `${Math.random() * 60 - 30}px`);
+  leaf.style.setProperty("--rotation", `${Math.random() * 360}deg`);
+
+  // Random leaf color (autumn hues)
+  const colors = ["#FFB347", "#FF7E5F", "#FFD166", "#FF9A76"];
+  leaf.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+  // Use maple leaf symbol 🍁
+  leaf.textContent = "🍁";
+
+  document.getElementById("leaf-layer").appendChild(leaf);
+
+  // Remove after it finishes
+  setTimeout(() => leaf.remove(), duration * 1000);
+}
+
+// Create leaves continuously
+setInterval(() => {
+  if (document.querySelectorAll(".animated-leaf").length < 15) {
+    createAnimatedLeaf();
+  }
+}, 800);
