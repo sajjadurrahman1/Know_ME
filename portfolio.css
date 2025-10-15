@@ -16,11 +16,20 @@
 }
 html { scroll-behavior: smooth; }
 body {
-  background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2a34);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
   color: var(--text);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
 }
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .section-pad { padding: 80px 0; }
 
 /* ---------- Navbar ---------- */
@@ -452,3 +461,81 @@ footer {
   from { opacity: 0.5; box-shadow: 0 0 15px rgba(255, 221, 0, 0.2); }
   to { opacity: 1; box-shadow: 0 0 25px rgba(255, 221, 0, 0.35); }
 }
+.glow-orb {
+  transition: transform 10s ease-in-out, opacity 2s ease-in-out;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(60px, -40px) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-60px, 40px) scale(1);
+    opacity: 0.5;
+  }
+}
+/* ===== Fixed Site Background (parallax-ready) ===== */
+#site-bg{
+  position: fixed;
+  inset: 0;
+  z-index: -2;                /* behind everything */
+  background: url("haw-hamburg.jpg") center / cover no-repeat;
+  transform: translateZ(0) scale(1.06);    /* tiny overscan so edges don’t show */
+  will-change: transform;
+}
+#site-bg::after{
+  content:"";
+  position:absolute; inset:0;
+  /* darken & add depth so text stays readable */
+  background:
+    radial-gradient(1200px 800px at 30% 20%, rgba(0,0,0,0.25), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%);
+  pointer-events:none;
+}
+
+/* Make hero transparent so the fixed photo shows through */
+.heady{
+  background: transparent;              /* was animated gradient */
+  padding: 140px 0 100px;
+}
+.hero-overlay{
+  background: radial-gradient(circle at 30% 30%, rgba(255,221,0,0.10), transparent 55%);
+}
+
+/* Optional: glass effect on content sections for that clean, layered look */
+.glass{
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+/* Apply glass style to your main sections */
+#about, #skills, #education, #projects, #hobbies, #photography, #contact{
+  background: transparent; /* base */
+}
+#about .container,
+#skills .container,
+#education .container,
+#projects .container,
+#hobbies .container,
+#photography .container,
+#contact .container{
+  /* wrap container in glass without changing your markup */
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+/* Keep your existing neon styles (skills, edu, cards…) — no changes needed there */

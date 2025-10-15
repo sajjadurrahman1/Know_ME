@@ -123,33 +123,33 @@ lightbox.addEventListener("click",()=>{
   setTimeout(()=>{lightbox.style.display="none";lbImg.src="";},300);
 });
 
-/* ===== Floating Orbs background ===== */
-const leafLayer=document.getElementById("leaf-layer");
-function createOrb(){
-  const orb=document.createElement("div");
-  orb.className="orb";
-  const size=6+Math.random()*8;
-  orb.style.width=orb.style.height=`${size}px`;
-  orb.style.left=Math.random()*100+"vw";
-  orb.style.top=Math.random()*100+"vh";
-  orb.style.background="radial-gradient(circle,rgba(255,221,0,0.8)0%,rgba(255,221,0,0)70%)";
-  orb.style.position="absolute";
-  orb.style.borderRadius="50%";
-  orb.style.opacity=0.3+Math.random()*0.5;
-  orb.style.filter="blur(1px)";
-  leafLayer.appendChild(orb);
-  const driftX=(Math.random()*0.5-0.25);
-  const driftY=(Math.random()*0.5-0.25);
-  let x=parseFloat(orb.style.left);
-  let y=parseFloat(orb.style.top);
-  function move(){
-    x+=driftX; y+=driftY;
-    orb.style.left=x+"vw"; orb.style.top=y+"vh";
-    requestAnimationFrame(move);
-  }
-  move();
+/* ===== Dynamic Floating Glow Background ===== */
+const backgroundLayer = document.getElementById("leaf-layer");
+backgroundLayer.innerHTML = ""; // clear existing
+
+function createGlowOrb() {
+  const orb = document.createElement("div");
+  orb.classList.add("glow-orb");
+
+  const size = 120 + Math.random() * 180;
+  orb.style.width = `${size}px`;
+  orb.style.height = `${size}px`;
+  orb.style.left = `${Math.random() * 100}%`;
+  orb.style.top = `${Math.random() * 100}%`;
+  orb.style.background = `radial-gradient(circle, rgba(255,221,0,0.12) 0%, transparent 70%)`;
+  orb.style.position = "absolute";
+  orb.style.borderRadius = "50%";
+  orb.style.filter = "blur(60px)";
+  orb.style.zIndex = 0;
+  orb.style.pointerEvents = "none";
+  orb.style.animation = `floatOrb ${15 + Math.random() * 10}s ease-in-out infinite alternate`;
+
+  backgroundLayer.appendChild(orb);
 }
-for(let i=0;i<20;i++)createOrb();
+
+for (let i = 0; i < 6; i++) createGlowOrb();
+
+
 
 /* ===== Parallax for Education photo ===== */
 const eduPhoto=document.querySelector("[data-parallax] img");
@@ -189,3 +189,21 @@ function setActive(){
 }
 window.addEventListener("scroll",setActive);
 setActive();
+/* ===== Subtle Parallax on the fixed site background ===== */
+(() => {
+  const bg = document.getElementById("site-bg");
+  if (!bg) return;
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY * 0.12;              // parallax intensity
+      bg.style.transform = `translateY(${y}px) scale(1.06)`; // keep overscan scale
+      ticking = false;
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
