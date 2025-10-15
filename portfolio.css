@@ -387,3 +387,68 @@ footer {
 .skill:hover .progress-bar {
   box-shadow: 0 0 16px rgba(255, 221, 0, 0.9), 0 0 30px rgba(255, 221, 0, 0.4);
 }
+/* ===== Enhanced Education Section ===== */
+.edu-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.edu-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 14px;
+  padding: 18px 22px;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+.edu-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-border);
+  box-shadow: 0 0 24px rgba(255, 221, 0, 0.25);
+}
+
+.edu-card-header {
+  display: flex;
+  align-items: center;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.edu-card-body h5 {
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.edu-card-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.edu-card-body small {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85rem;
+}
+
+/* Neon glow animation pulse */
+.edu-card:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 221, 0, 0.2);
+  box-shadow: 0 0 25px rgba(255, 221, 0, 0.3);
+  animation: cardGlow 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes cardGlow {
+  from { opacity: 0.5; box-shadow: 0 0 15px rgba(255, 221, 0, 0.2); }
+  to { opacity: 1; box-shadow: 0 0 25px rgba(255, 221, 0, 0.35); }
+}
