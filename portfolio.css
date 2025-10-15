@@ -137,6 +137,26 @@ body {
   transition:transform .25s, box-shadow .25s;
   animation:pulse 3s ease-in-out infinite;
 }
+.resumebtn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 34px;
+  border-radius: 28px;
+  color: #000;
+  font-weight: 700;
+  background: var(--accent);
+  box-shadow: 0 6px 18px rgba(255, 221, 0, 0.35);
+  transition: transform 0.25s, box-shadow 0.25s;
+  animation: pulse 3s ease-in-out infinite;
+  text-decoration: none !important;   /* 💥 removes underline */
+}
+
+.resumebtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 221, 0, 0.55);
+  text-decoration: none !important;   /* 💥 ensure no underline on hover */
+}
+
 @keyframes pulse {
   0%,100%{box-shadow:0 0 10px rgba(255,221,0,0.25);}
   50%{box-shadow:0 0 25px rgba(255,221,0,0.6);}
@@ -175,6 +195,53 @@ body {
 /* ---------- About ---------- */
 .about .abt2 {
   font-size:1.06rem; line-height:1.8;
+}
+/* ===== Improved About Section Layout ===== */
+#about .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;                  /* adds space between image and text */
+  padding: 40px 60px;         /* adds overall section padding */
+}
+
+#about .abt1 img {
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+#about .abt2 {
+  flex: 1;
+  padding: 20px 30px;         /* balanced padding inside the text box */
+  margin-top: 10px;
+  text-align: justify;        /* even edge alignment */
+  line-height: 1.8;           /* smoother readability */
+  font-size: 1.05rem;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+#about .abt2 .section-title {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+/* Responsive fix */
+@media (max-width: 992px) {
+  #about .container {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+
+  #about .abt2 {
+    text-align: center;
+    padding: 20px;
+  }
 }
 
 /* ---------- Skills ---------- */
@@ -844,7 +911,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
-/* ===== Zigzag Alignment for Photography Gallery ===== */
+/* ===== Enhanced Zigzag Alignment for Photography Gallery ===== */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -866,22 +933,24 @@ footer {
   height: 260px;
 }
 
-/* subtle zigzag offsets for alternating images */
-.photo-card:nth-child(odd) {
-  transform: translateX(-30px);
+/* Bigger, smoother left-right offsets for a visible zigzag rhythm */
+.photo-card:nth-child(4n+1),
+.photo-card:nth-child(4n+2) {
+  transform: translateX(-50px);
 }
-.photo-card:nth-child(even) {
-  transform: translateX(30px);
+.photo-card:nth-child(4n+3),
+.photo-card:nth-child(4n+4) {
+  transform: translateX(50px);
 }
 
-/* smooth animation when revealing or hovering */
+/* hover interactions */
 .photo-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05) translateY(-5px);
   box-shadow: 0 10px 25px rgba(255, 221, 0, 0.25);
 }
 
 .photo-card:hover img {
-  transform: scale(1.07);
+  transform: scale(1.08);
 }
 
 .photo-card img {
@@ -911,10 +980,22 @@ footer {
   transform: translateY(0);
 }
 
-/* reset zigzag for mobile */
+/* Captions follow zigzag direction */
+.photo-card:nth-child(4n+1) figcaption,
+.photo-card:nth-child(4n+2) figcaption {
+  text-align: left;
+}
+.photo-card:nth-child(4n+3) figcaption,
+.photo-card:nth-child(4n+4) figcaption {
+  text-align: right;
+}
+
+/* Reset offsets for mobile */
 @media (max-width: 992px) {
-  .photo-card:nth-child(odd),
-  .photo-card:nth-child(even) {
-    transform: none;
+  .photo-card {
+    transform: none !important;
+  }
+  .photo-card figcaption {
+    text-align: center !important;
   }
 }
