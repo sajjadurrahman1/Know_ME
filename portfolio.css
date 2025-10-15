@@ -626,3 +626,295 @@ footer {
     transform: none;
   }
 }
+/* ===== Subtle Right Shift for Skills Section ===== */
+#skills .container {
+  transform: translateX(60px);
+  transition: transform 0.5s ease;
+}
+
+#skills .container:hover {
+  transform: translateX(60px) scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 221, 0, 0.15);
+}
+
+/* Reset for mobile screens */
+@media (max-width: 992px) {
+  #skills .container {
+    transform: none;
+  }
+}
+/* ===== Subtle Left Shift for Education Section ===== */
+#education .container {
+  transform: translateX(-60px);
+  transition: transform 0.5s ease;
+}
+
+#education .container:hover {
+  transform: translateX(-60px) scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 221, 0, 0.15);
+}
+
+/* Reset for mobile screens */
+@media (max-width: 992px) {
+  #education .container {
+    transform: none;
+  }
+}
+/* ===== Subtle Right Shift for Projects Section ===== */
+#projects .container {
+  transform: translateX(60px);
+  transition: transform 0.5s ease;
+}
+
+#projects .container:hover {
+  transform: translateX(60px) scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 221, 0, 0.15);
+}
+
+/* Reset for mobile screens */
+@media (max-width: 992px) {
+  #projects .container {
+    transform: none;
+  }
+}
+/* ===== Hobbies Section Layout (Zigzag) ===== */
+.hobby-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.hobby-item img {
+  width: 48%;
+  max-width: 500px;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-item .hobby-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hobby-item p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Left-aligned photo (first hobby) */
+.hobby-left {
+  flex-direction: row;
+  transform: translateX(-40px);
+}
+
+/* Right-aligned photo (second hobby) */
+.hobby-right {
+  flex-direction: row-reverse;
+  transform: translateX(40px);
+}
+
+/* Hover effect for subtle motion */
+.hobby-item:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 221, 0, 0.25);
+}
+
+/* Responsive reset */
+@media (max-width: 992px) {
+  .hobby-item {
+    flex-direction: column !important;
+    text-align: center;
+    transform: none;
+  }
+
+  .hobby-item img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .hobby-item .hobby-text {
+    max-width: 100%;
+  }
+}
+/* ===== About Me Profile Photo Enhancements ===== */
+#about img.rounded-circle {
+  border: 3px solid rgba(255, 221, 0, 0.3);
+  box-shadow: 0 0 25px rgba(255, 221, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about img.rounded-circle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255, 221, 0, 0.45);
+}
+/* ===== Photography Section — Shift Right ===== */
+#photography .container {
+  transform: translateX(60px);
+  transition: transform 0.5s ease;
+}
+#photography .container:hover {
+  transform: translateX(60px) scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 221, 0, 0.15);
+}
+
+/* ===== Contact Section — Shift Left ===== */
+#contact .container {
+  transform: translateX(-60px);
+  transition: transform 0.5s ease;
+}
+#contact .container:hover {
+  transform: translateX(-60px) scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 221, 0, 0.15);
+}
+
+/* ===== Reset for mobile (responsive safety) ===== */
+@media (max-width: 992px) {
+  #photography .container,
+  #contact .container {
+    transform: none;
+    box-shadow: none;
+  }
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 40px;
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 380px;
+  width: 100%;
+  height: 260px;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.photo-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 221, 0, 0.25);
+}
+
+.photo-card:hover img {
+  transform: scale(1.07);
+}
+
+.photo-card figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+}
+
+.photo-card:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keep it centered on mobile */
+@media (max-width: 768px) {
+  .photo-card {
+    height: 220px;
+  }
+  .photo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+/* ===== Zigzag Alignment for Photography Gallery ===== */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 40px;
+  position: relative;
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 380px;
+  width: 100%;
+  height: 260px;
+}
+
+/* subtle zigzag offsets for alternating images */
+.photo-card:nth-child(odd) {
+  transform: translateX(-30px);
+}
+.photo-card:nth-child(even) {
+  transform: translateX(30px);
+}
+
+/* smooth animation when revealing or hovering */
+.photo-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 221, 0, 0.25);
+}
+
+.photo-card:hover img {
+  transform: scale(1.07);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.photo-card figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+}
+
+.photo-card:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* reset zigzag for mobile */
+@media (max-width: 992px) {
+  .photo-card:nth-child(odd),
+  .photo-card:nth-child(even) {
+    transform: none;
+  }
+}
