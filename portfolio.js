@@ -207,3 +207,21 @@ setActive();
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 })();
+/* ===== Toggle "Show More Photos" in Hobbies ===== */
+const toggleBtn = document.getElementById("toggle-hobbies");
+const moreHobbies = document.getElementById("more-hobbies");
+
+if (toggleBtn && moreHobbies) {
+  toggleBtn.addEventListener("click", () => {
+    const isHidden = moreHobbies.classList.contains("hidden");
+    if (isHidden) {
+      moreHobbies.classList.remove("hidden");
+      moreHobbies.classList.add("show");
+      toggleBtn.textContent = "Show Less Photos";
+    } else {
+      moreHobbies.classList.add("hidden");
+      moreHobbies.classList.remove("show");
+      toggleBtn.textContent = "Show More Photos";
+    }
+  });
+}

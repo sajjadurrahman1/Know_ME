@@ -103,12 +103,31 @@ body {
   100%{transform:translate(-80px,-40px);opacity:.5;}
 }
 .hero-img {
-  width: 88%; max-width: 420px;
-  border: 2px solid rgba(255,255,255,0.05);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-  transition: transform .2s ease-out;
-  position: relative; z-index: 1;
+  width: 80%;
+  max-width: 360px;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  margin-left: auto;            /* pushes image right on large screens */
+  margin-right: 40px;           /* creates spacing to reveal HAW Hamburg bg */
 }
+.hero-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 35px rgba(255, 221, 0, 0.35);
+}
+
+/* On smaller devices, center the image again */
+@media (max-width: 992px) {
+  .hero-img {
+    margin: 0 auto;
+    display: block;
+    max-width: 300px;
+  }
+}
+
 .resumebtn {
   display:inline-block; margin-top:18px; padding:12px 34px;
   border-radius:28px; color:#000; font-weight:700;
@@ -538,4 +557,54 @@ footer {
   box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 }
 
-/* Keep your existing neon styles (skills, edu, cards…) — no changes needed there */
+/* ===== Hobbies Section with Custom Background ===== */
+#hobbies {
+  position: relative;
+  background: url("football-bg.jpg") center / cover fixed no-repeat; /* <-- add your football bg image */
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 100px 0;
+}
+
+#hobbies::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55); /* overlay for contrast */
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+#hobbies .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hobby-photos img {
+  max-width: 650px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-photos img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 221, 0, 0.4);
+}
+
+/* Hidden toggle section */
+.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.show {
+  display: block !important;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

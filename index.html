@@ -239,20 +239,40 @@
   </section>
 
   <!-- Hobbies -->
-  <section id="hobbies" class="section-pad text-white text-center">
-    <div class="container">
-      <h2 class="section-title mb-3">Hobbies</h2>
-      <p class="lead text-muted">I love <strong>playing football</strong> — it keeps me balanced, focused, and connected.</p>
-      <div class="reveal-up mt-4">
-        <img src="football.jpg" alt="Playing football" class="img-fluid rounded shadow-lg" style="max-width: 700px;">
+<section id="hobbies" class="section-pad text-white text-center">
+  <div class="container">
+    <h2 class="section-title mb-3">Hobbies</h2>
+    <p class="lead text-muted">I love <strong>playing football</strong> — it keeps me balanced, focused, and connected.</p>
+
+    <!-- Initial visible photos -->
+    <div class="hobby-photos mt-4">
+      <div class="photo reveal-up">
+        <img src="football.jpg" alt="Playing football" class="img-fluid rounded shadow-lg">
         <p class="mt-3 small text-muted">“Teamwork makes the dream work.” ⚽</p>
       </div>
-      <div class="reveal-up mt-4">
-        <img src="football-trophy.jpg" alt="Trophy celebration" class="img-fluid rounded shadow-lg" style="max-width: 600px;">
+      <div class="photo reveal-up">
+        <img src="football-trophy.jpg" alt="Trophy celebration" class="img-fluid rounded shadow-lg">
         <p class="mt-3 small text-muted">Victory moments — hard work pays off 🏆</p>
       </div>
     </div>
-  </section>
+
+    <!-- Hidden extra photos -->
+    <div id="more-hobbies" class="hobby-photos mt-4 hidden">
+      <div class="photo reveal-up">
+        <img src="autumn1.jpg" alt="Autumn photo" class="img-fluid rounded shadow-lg">
+        <p class="mt-3 small text-muted">Calm moments after a game 🍂</p>
+      </div>
+      <div class="photo reveal-up">
+        <img src="coffee.jpg" alt="Coffee time" class="img-fluid rounded shadow-lg">
+        <p class="mt-3 small text-muted">Coffee + football talk ☕</p>
+      </div>
+    </div>
+
+    <!-- Show More / Less Button -->
+    <button id="toggle-hobbies" class="btn btn-accent mt-4">Show More Photos</button>
+  </div>
+</section>
+
 
   <!-- Photography -->
   <section id="photography" class="section-pad text-white">
