@@ -280,3 +280,82 @@ setInterval(() => {
     createAnimatedLeaf();
   }
 }, 800);
+// ===== Dynamic Seasonal Background Animation =====
+const month = new Date().getMonth(); // 0 = Jan ... 11 = Dec
+//const month = 3; // 👈 Force July for testing Summer effect
+
+const layer = document.getElementById("leaf-layer");
+
+// ===== 1. AUTUMN 🍁 =====
+function createLeaf() {
+  const leaf = document.createElement("div");
+  leaf.classList.add("animated-leaf");
+  leaf.textContent = "🍁";
+  leaf.style.left = Math.random() * 100 + "vw";
+  leaf.style.fontSize = 12 + Math.random() * 18 + "px";
+  leaf.style.animationDuration = 6 + Math.random() * 6 + "s";
+  leaf.style.color = ["#FFB347", "#FF7E5F", "#FFD166", "#FF9A76"][Math.floor(Math.random() * 4)];
+  layer.appendChild(leaf);
+  setTimeout(() => leaf.remove(), 12000);
+}
+
+// ===== 2. WINTER ❄️ =====
+function createSnowflake() {
+  const flake = document.createElement("div");
+  flake.classList.add("snowflake");
+  flake.style.left = Math.random() * 100 + "vw";
+  const size = 4 + Math.random() * 6;
+  flake.style.width = size + "px";
+  flake.style.height = size + "px";
+  flake.style.setProperty("--drift", `${Math.random() * 60 - 30}px`);
+  layer.appendChild(flake);
+  setTimeout(() => flake.remove(), 12000);
+}
+
+// ===== 3. SPRING 🌸 =====
+function createPetal() {
+  const petal = document.createElement("div");
+  petal.classList.add("spring-petal");
+  petal.textContent = "🌸";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.fontSize = 14 + Math.random() * 14 + "px";
+  petal.style.animationDuration = 8 + Math.random() * 6 + "s";
+  layer.appendChild(petal);
+  setTimeout(() => petal.remove(), 14000);
+}
+
+// ===== 4. SUMMER ☀️ =====
+function createSunBubble() {
+  const bubble = document.createElement("div");
+  bubble.classList.add("summer-bubble");
+  bubble.style.left = Math.random() * 100 + "vw";
+  const size = 10 + Math.random() * 20;
+  bubble.style.width = size + "px";
+  bubble.style.height = size + "px";
+  bubble.style.animationDuration = 8 + Math.random() * 6 + "s";
+  layer.appendChild(bubble);
+  setTimeout(() => bubble.remove(), 12000);
+}
+
+// ===== Seasonal Activation =====
+if (month >= 8 && month <= 10) {
+  // AUTUMN (Sep–Nov)
+  setInterval(() => {
+    if (document.querySelectorAll(".animated-leaf").length < 15) createLeaf();
+  }, 800);
+} else if (month >= 11 || month <= 1) {
+  // WINTER (Dec–Feb)
+  setInterval(() => {
+    if (document.querySelectorAll(".snowflake").length < 25) createSnowflake();
+  }, 400);
+} else if (month >= 2 && month <= 4) {
+  // SPRING (Mar–May)
+  setInterval(() => {
+    if (document.querySelectorAll(".spring-petal").length < 15) createPetal();
+  }, 800);
+} else {
+  // SUMMER (Jun–Aug)
+  setInterval(() => {
+    if (document.querySelectorAll(".summer-bubble").length < 20) createSunBubble();
+  }, 700);
+}
