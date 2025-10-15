@@ -333,3 +333,57 @@ footer {
   .hero-img{width:100%;}
   .link-icons-1{font-size:28px;}
 }
+/* ===== Refined Skills Layout ===== */
+.skill-group {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+.skill-group:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 221, 0, 0.3);
+  border-color: var(--accent-border);
+}
+
+.skill-group h5 {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skill {
+  margin-bottom: 1rem;
+}
+.skill span {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.progress {
+  height: 14px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+.progress-bar {
+  background: var(--accent);
+  border-radius: 999px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 221, 0, 0.6);
+}
+
+/* Soft hover glow on progress */
+.skill:hover .progress-bar {
+  box-shadow: 0 0 16px rgba(255, 221, 0, 0.9), 0 0 30px rgba(255, 221, 0, 0.4);
+}
